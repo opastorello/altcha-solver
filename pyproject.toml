@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "altcha-solver"
+version = "1.0.0"
+description = "Universal proof-of-work CAPTCHA solver for Altcha - supports all 8 algorithm variants"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Nicolas Pastorello", email = "nicolaspastorello1@gmail.com"}
+]
+maintainers = [
+    {name = "Nicolas Pastorello", email = "nicolaspastorello1@gmail.com"}
+]
+keywords = [
+    "altcha",
+    "captcha",
+    "captcha-solver",
+    "proof-of-work",
+    "pow",
+    "pbkdf2",
+    "scrypt",
+    "argon2",
+    "security",
+    "automation"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+requires-python = ">=3.6"
+dependencies = []
+
+[project.optional-dependencies]
+argon2 = ["argon2-cffi>=21.0.0"]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/opastorello/altcha-solver"
+Documentation = "https://github.com/opastorello/altcha-solver#readme"
+Repository = "https://github.com/opastorello/altcha-solver"
+Issues = "https://github.com/opastorello/altcha-solver/issues"
+
+[project.scripts]
+altcha-solver = "altcha_solver:main"
+
+[tool.setuptools]
+py-modules = ["altcha_solver"]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["examples*", "tests*"]
