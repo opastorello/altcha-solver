@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "altcha-solver"
-version = "1.0.0"
+version = "1.0.1"
 description = "Universal proof-of-work CAPTCHA solver for Altcha - supports all 8 algorithm variants"
 readme = "README.md"
 license = {text = "MIT"}
