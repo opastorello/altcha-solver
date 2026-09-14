@@ -585,7 +585,17 @@ Examples:
     parser.add_argument("--output", choices=["json", "text"], default="text", help="Output format")
     parser.add_argument("--list", action="store_true", help="List supported algorithms")
 
-    args = parser.parse_args()
+    # Pre-scan for global options anywhere in argv, since subparsers only accept args after the subcommand name.
+    pre_parser = argparse.ArgumentParser(add_help=False)
+    pre_parser.add_argument("--json")
+    pre_parser.add_argument("--output", choices=["json", "text"], default="text")
+    pre_parser.add_argument("--list", action="store_true")
+    pre_args, remaining_argv = pre_parser.parse_known_args()
+
+    args = parser.parse_args(remaining_argv)
+    args.json = pre_args.json
+    args.output = pre_args.output
+    args.list = pre_args.list
 
     if args.list:
         print("Supported algorithms:")
